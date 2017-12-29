@@ -1,0 +1,30 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "clean": "rm index.js",
+    "prepare": "babel *.jsx --retain-lines -d ./ --verbose",
+    "serve": "yarn run link && firebase serve --only functions",
+    "shell": "yarn run link && firebase experimental:functions:shell",
+    "link": "ln -sf index.jsx index.js",
+    "start": "npm run shell",
+    "deploy": "yarn prepare && firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.36",
+    "@firebase/app-types": "^0.1.0",
+    "firebase-admin": "~5.5.1",
+    "firebase-functions": "^0.7.5",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.35",
+    "@babel/core": "7.0.0-beta.35",
+    "@babel/preset-env": "^7.0.0-beta.35",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "firebase-tools": "^3.16.0"
+  },
+  "private": true
+}
